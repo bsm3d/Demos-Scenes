@@ -1,0 +1,261 @@
+<!--
+    Author : Benoit (BSM3D) Saint-Moulin
+    2025 © BSM3D
+    www.bsm3d.com
+    Free to use and for Learning purpose.
+    
+    Amiga Boing Ball 3D Recreation
+    -----------------------------
+    A HTML5 Canvas implementation of the iconic Amiga Boing Ball demo
+    Originally created in 1984 by Dale Luck and RJ Mical
+    
+    Features:
+    - 3D sphere with checker pattern
+    - Realistic bounce physics with damping
+    - Smooth rotation animation
+    - Classic Amiga-style background grid
+    - Dynamic shadow projection
+    
+    Technologies used:
+    - HTML5 Canvas for rendering
+    - JavaScript for physics and 3D mathematics
+    - CSS for pixel-perfect rendering
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSM3D - Amiga Boing Ball</title>
+    <style>
+        /* Basic layout and display settings */
+        body { 
+            margin: 0;
+            overflow: hidden;
+            background-color: #a8b0c0;  /* Classic Amiga background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* Canvas rendering settings for crisp pixels */
+        canvas { 
+            background-color: #a8b0c0;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        // Initialize canvas and context
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas dimensions
+        canvas.width = 800;
+        canvas.height = 600;
+
+        /**
+         * Global configuration constants
+         * These control the ball's appearance and physics behavior
+         */
+        const BALL_RADIUS = 100;       // Ball size in pixels
+        const ROTATION_SPEED = 0.02;    // Speed of ball rotation
+        const BOUNCE_SPEED = 2;         // Initial bounce velocity
+        const GRAVITY = 0.2;            // Gravity strength
+        const DAMPING = 0.98;           // Bounce energy loss (1 = no loss)
+        const CHECKER_SIZE = 8;         // Number of checker pattern repeats
+
+        /**
+         * Ball state variables
+         * Track the current position, rotation and movement of the ball
+         */
+        let rotationY = 0;              // Current Y-axis rotation
+        let rotationX = Math.PI / 8;    // Fixed X-axis rotation for perspective
+        let ballX = canvas.width / 2;   // Ball's horizontal position
+        let ballY = BALL_RADIUS;        // Ball's vertical position
+        let velocityY = 0;              // Vertical movement speed
+
+        /**
+         * 3D point rotation and projection function
+         * Converts a 3D point to 2D with perspective
+         * 
+         * @param {number} x - X coordinate in 3D space
+         * @param {number} y - Y coordinate in 3D space
+         * @param {number} z - Z coordinate in 3D space
+         * @param {number} rotX - X-axis rotation angle
+         * @param {number} rotY - Y-axis rotation angle
+         * @returns {Object} Projected 2D point with visibility flag
+         */
+        function rotateAndProject(x, y, z, rotX, rotY) {
+            // Rotate around Y axis first
+            let x1 = x * Math.cos(rotY) - z * Math.sin(rotY);
+            let z1 = z * Math.cos(rotY) + x * Math.sin(rotY);
+
+            // Then rotate around X axis
+            let y2 = y * Math.cos(rotX) - z1 * Math.sin(rotX);
+            let z2 = z1 * Math.cos(rotX) + y * Math.sin(rotX);
+
+            // Apply perspective projection
+            let scale = 400 / (400 + z2);
+            return {
+                x: x1 * scale,
+                y: y2 * scale,
+                z: z2,
+                visible: z2 > 0  // Point is visible if z > 0
+            };
+        }
+
+        /**
+         * Draw the background grid
+         * Creates the classic Amiga-style purple grid
+         */
+        function drawGrid() {
+            ctx.strokeStyle = '#8040c0';  // Classic Amiga purple
+            ctx.lineWidth = 1;
+
+            // Draw vertical grid lines
+            for (let i = 0; i <= canvas.width; i += 40) {
+                ctx.beginPath();
+                ctx.moveTo(i, 0);
+                ctx.lineTo(i, canvas.height);
+                ctx.stroke();
+            }
+
+            // Draw horizontal grid lines
+            for (let i = 0; i <= canvas.height; i += 40) {
+                ctx.beginPath();
+                ctx.moveTo(0, i);
+                ctx.lineTo(canvas.width, i);
+                ctx.stroke();
+            }
+        }
+
+        /**
+         * Draw the 3D checkered ball
+         * Creates a sphere with red and white checker pattern
+         * 
+         * @param {number} centerX - Ball's center X position
+         * @param {number} centerY - Ball's center Y position
+         * @param {number} radius - Ball's radius
+         */
+        function drawBall(centerX, centerY, radius) {
+            const resolution = 50;  // Number of points per longitude/latitude
+            const spherePoints = [];
+
+            // Generate sphere points with checker pattern
+            for (let lat = 0; lat <= resolution; lat++) {
+                const theta = lat * Math.PI / resolution;
+                for (let lon = 0; lon <= resolution; lon++) {
+                    const phi = lon * 2 * Math.PI / resolution;
+
+                    // Calculate 3D sphere coordinates
+                    const x = radius * Math.sin(theta) * Math.cos(phi);
+                    const y = radius * Math.sin(theta) * Math.sin(phi);
+                    const z = radius * Math.cos(theta);
+
+                    // Calculate checker pattern coordinates
+                    const u = (lon / resolution) * CHECKER_SIZE;
+                    const v = (lat / resolution) * CHECKER_SIZE;
+                    const isRed = (Math.floor(u) + Math.floor(v)) % 2 === 0;
+
+                    // Project 3D point to 2D
+                    const projected = rotateAndProject(x, y, z, rotationX, rotationY);
+
+                    if (projected.visible) {
+                        spherePoints.push({
+                            x: projected.x + centerX,
+                            y: projected.y + centerY,
+                            z: projected.z,
+                            isRed: isRed
+                        });
+                    }
+                }
+            }
+
+            // Sort points by Z for proper depth rendering
+            spherePoints.sort((a, b) => b.z - a.z);
+
+            // Draw all points with shading based on depth
+            spherePoints.forEach(point => {
+                const intensity = (point.z + radius) / (2 * radius);
+                const color = point.isRed ? 
+                    `rgb(${Math.floor(255 * intensity)}, 0, 0)` : 
+                    `rgb(${Math.floor(255 * intensity)}, ${Math.floor(255 * intensity)}, ${Math.floor(255 * intensity)})`;
+                
+                ctx.fillStyle = color;
+                ctx.fillRect(point.x, point.y, 2, 2);
+            });
+        }
+
+        /**
+         * Draw the ball's shadow
+         * Creates an oval shadow that moves with the ball
+         * 
+         * @param {number} x - Shadow's center X position
+         * @param {number} y - Current ball height for shadow scaling
+         */
+        function drawShadow(x, y) {
+            const shadowY = canvas.height - 20;
+            const scale = 1 - (shadowY - y) / (canvas.height * 0.8);
+            
+            ctx.save();
+            ctx.translate(x, shadowY);
+            ctx.scale(1, 0.2);  // Flatten to create oval shadow
+            
+            ctx.beginPath();
+            ctx.arc(0, 0, BALL_RADIUS * scale, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(80, 40, 120, 0.5)';  // Semi-transparent purple
+            ctx.fill();
+            
+            ctx.restore();
+        }
+
+        /**
+         * Main animation loop
+         * Updates ball physics and renders each frame
+         */
+        function animate() {
+            // Clear previous frame
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGrid();
+
+            // Update ball physics
+            velocityY += GRAVITY;
+            ballY += velocityY;
+
+            // Handle floor bounce
+            if (ballY > canvas.height - BALL_RADIUS) {
+                ballY = canvas.height - BALL_RADIUS;
+                velocityY = -velocityY * DAMPING;
+            }
+
+            // Handle ceiling bounce
+            if (ballY < BALL_RADIUS) {
+                ballY = BALL_RADIUS;
+                velocityY = Math.abs(velocityY) * DAMPING;
+            }
+
+            // Update ball rotation
+            rotationY += ROTATION_SPEED;
+
+            // Draw ball and shadow
+            drawShadow(ballX, ballY);
+            drawBall(ballX, ballY, BALL_RADIUS);
+
+            // Continue animation
+            requestAnimationFrame(animate);
+        }
+
+        // Start the animation
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            ballX = canvas.width / 2;  // Keep ball centered horizontally
+        });
+    </script>
+</body>
+</html>

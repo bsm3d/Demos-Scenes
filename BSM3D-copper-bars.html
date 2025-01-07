@@ -1,0 +1,108 @@
+<!--
+    Author : Benoit (BSM3D) Saint-Moulin
+    2025 © BSM3D
+    www.bsm3d.com
+    Free to use and for Learning purpose.
+    
+    Amiga Copper Bars Effect
+    -----------------------
+    A recreation of the classic Amiga demo scene copper bars effect
+    using modern web technologies
+    
+    Features:
+    - Smooth color gradients
+    - Dynamic movement with phase offsets
+    - Rainbow color cycling
+    - Shine effect on bars
+    
+    Technologies used:
+    - HTML5 Canvas for rendering
+    - JavaScript for animation
+    - CSS for full-screen display
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSM3D - Amiga Style Copper Bars</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: #000;
+        }
+        canvas { 
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Handle window resizing
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Copper bars configuration
+        const NUM_BARS = 8;
+        const BAR_HEIGHT = 50;
+        let bars = [];
+
+        // Initialize bars with random properties
+        for (let i = 0; i < NUM_BARS; i++) {
+            bars.push({
+                baseY: i * (canvas.height / NUM_BARS),
+                speed: 1 + Math.random() * 0.5,
+                hue: i * (360 / NUM_BARS),
+                phase: Math.random() * Math.PI * 2
+            });
+        }
+
+        function draw() {
+            // Clear screen
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const time = Date.now() * 0.001;
+
+            bars.forEach(bar => {
+                // Update Y position with sinusoidal movement using full screen height
+                const y = (Math.sin(time * bar.speed + bar.phase) * (canvas.height - BAR_HEIGHT)) + canvas.height/2;
+
+                // Create gradient for each bar
+                const gradient = ctx.createLinearGradient(0, y, 0, y + BAR_HEIGHT);
+                
+                // Amiga-style colors with transparency for trail effect
+                gradient.addColorStop(0, `hsla(${bar.hue}, 100%, 50%, 0.2)`);
+                gradient.addColorStop(0.5, `hsla(${bar.hue}, 100%, 50%, 0.8)`);
+                gradient.addColorStop(1, `hsla(${bar.hue}, 100%, 50%, 0.2)`);
+
+                // Draw main bar
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, y, canvas.width, BAR_HEIGHT);
+
+                // Add shine effect
+                ctx.fillStyle = `hsla(${bar.hue}, 100%, 80%, 0.5)`;
+                ctx.fillRect(0, y + BAR_HEIGHT/2 - 2, canvas.width, 4);
+
+                // Update color hue for rainbow effect
+                bar.hue = (bar.hue + 0.5) % 360;
+            });
+
+            // Continue animation loop
+            requestAnimationFrame(draw);
+        }
+
+        // Start animation
+        draw();
+    </script>
+</body>
+</html>
