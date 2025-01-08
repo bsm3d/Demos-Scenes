@@ -1,109 +1,73 @@
-# 3D Rotating Cubes: Modern HTML5 vs Classic Amiga Assembly
-## A Comparative Implementation Guide
+# 3D Cube: Understanding Implementation and Modern Recreation
+## A Deep Dive into 3D Graphics and Modern Web Implementation
+
+Author: Benoit (BSM3D) Saint-Moulin
+Website: www.bsm3d.com
+© 2025 BSM3D
+
+This tutorial is accompanied by a working HTML5 implementation (`BSM3D-3d-cube.html`) that you can run in any modern web browser to see the effect in action. The source code is extensively commented and can be used as a learning resource alongside this tutorial.
+
+## How to Use This Tutorial
+
+1. **View the Effect**: 
+   - Open the provided `BSM3D-3d-cube.html` file in your web browser
+   - No additional setup or libraries required
+   - Works in any modern browser with HTML5 support
+
+2. **Study the Code**:
+   - The HTML file contains detailed comments explaining each part
+   - You can modify values in real-time to see their effects
+   - Use browser developer tools to inspect and debug
+
+3. **Learn and Experiment**:
+   - Follow this tutorial while referring to the working example
+   - Try modifying parameters like rotation speeds, colors, and cube sizes
+   - Use this as a base to create your own 3D effects
 
 ## Introduction
 
-This tutorial will teach you how to create the classic demo effect of three nested rotating wireframe cubes, comparing modern web technology with retro Amiga assembly programming. This effect was popular in the demo scene of the late 1980s and early 1990s, demonstrating both artistic creativity and technical prowess.
+3D cube rendering is a fundamental concept in computer graphics, serving as a gateway to understanding 3D transformations, perspective projection, and wireframe rendering. This tutorial explores both the mathematical concepts and their practical implementation in modern web technologies.
 
 ### What You'll Learn
+- Understanding 3D coordinate systems
+- Matrix transformations and rotations
+- Perspective projection techniques
+- Animation timing and synchronization
+- Modern implementation using HTML5 Canvas
 
-In this tutorial, you will learn:
-- How to create and manipulate 3D wireframe objects
-- Basic 3D mathematics including rotation matrices and perspective projection
-- Double buffering techniques for smooth animation
-- Color manipulation and basic graphics programming
-- Performance optimization techniques
-- The differences between modern and retro programming approaches
+## Part 1: Mathematical Foundation
 
-### Prerequisites
+### 3D Coordinate System
 
-For the HTML5 version:
-- Basic knowledge of HTML and JavaScript
-- Understanding of Canvas 2D context
-- Basic trigonometry concepts
+The 3D coordinate system is the foundation of our cube implementation:
 
-For the Amiga Assembly version:
-- Understanding of 68000 assembly language
-- Knowledge of Amiga hardware architecture
-- Familiarity with fixed-point mathematics
+1. **Basic Concepts**
+   - X-axis: horizontal (left/right)
+   - Y-axis: vertical (up/down)
+   - Z-axis: depth (in/out of screen)
+   - Origin point (0,0,0)
 
-### Effect Breakdown
+2. **Key Features**
+   - Right-handed coordinate system
+   - Perspective projection
+   - Matrix transformations
+   - Vector operations
 
-The 3D cube effect consists of several key components:
+### Rotation Matrices
 
-1. **Geometry Setup**
-   - Defining cube vertices in 3D space
-   - Creating edge connections between vertices
-   - Setting up multiple cubes with different sizes
+Understanding rotation matrices is crucial:
 
-2. **3D Transformations**
-   - Matrix-based rotation calculations
-   - Independent rotation on X, Y, and Z axes
-   - Offset calculations for nested cube animations
+1. **Main Components**
+   - X-axis rotation matrix
+   - Y-axis rotation matrix
+   - Z-axis rotation matrix
+   - Combined rotation matrix
 
-3. **Rendering Pipeline**
-   - Perspective projection from 3D to 2D
-   - Wireframe drawing algorithms
-   - Screen coordinate transformation
+## Part 2: Cube Structure Implementation
 
-4. **Animation System**
-   - Timing and synchronization
-   - Double buffering for smooth movement
-   - Frame rate management
+### Defining Cube Vertices
 
-This tutorial explores how to create the classic demo effect of rotating 3D wireframe cubes, comparing a modern HTML5 Canvas implementation with its historical Amiga 68000 assembly counterpart.
-
-### Part 1: Design Approach
-
-Before diving into the implementation, let's understand the design approach for creating this effect:
-
-1. **Planning the Scene**
-   - Three concentric cubes with different sizes
-   - Each cube rotates independently with an offset
-   - Wireframe rendering for a classic demo look
-   - Color differentiation between cubes
-
-2. **Technical Considerations**
-   - Efficient vertex and edge management
-   - Smooth animation through proper timing
-   - Screen clearing and redrawing optimization
-   - Memory usage and performance balance
-
-3. **Implementation Strategy**
-   - Create reusable cube generation function
-   - Implement flexible rotation system
-   - Setup efficient rendering pipeline
-   - Manage animation timing and synchronization
-
-### Part 2: Basic Concepts
-
-Both implementations share the same mathematical principles:
-- 3D point rotation using transformation matrices
-- Perspective projection
-- Wireframe rendering
-- Double buffering for smooth animation
-
-### Part 2: HTML5 Canvas Implementation
-
-The modern implementation uses JavaScript and HTML5 Canvas for rendering. Let's break down the key components:
-
-#### 2.1 Setting Up the Canvas
-
-```html
-<canvas id="canvas"></canvas>
-<script>
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    // Handle window resizing
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-</script>
-```
-
-#### 2.2 3D Point Definition
+#### HTML5 Implementation:
 
 ```javascript
 function createCube(size) {
@@ -120,9 +84,7 @@ function createCube(size) {
 }
 ```
 
-### Part 3: Amiga 68000 Assembly Implementation
-
-Now let's look at how this would be implemented in Amiga assembly:
+#### Amiga Assembly Implementation:
 
 ```assembly
 ; Constants and data structures
@@ -149,57 +111,60 @@ init_cube:
     rts
 ```
 
-#### 3.1 Rotation Matrix Implementation
+### Edge Connections
 
-The key difference in the assembly version is the fixed-point math:
-
-```assembly
-; Rotate point around X axis
-; Input: d0,d1,d2 = x,y,z coordinates
-; Uses: d3,d4 for temporary calculations
-rotate_x:
-    ; y' = y*cos(angle) - z*sin(angle)
-    ; z' = y*sin(angle) + z*cos(angle)
-    move.w  d1,d3           ; Save Y
-    muls    cos_angle,d1    ; Y * cos
-    asr.l   #14,d1         ; Fixed point adjustment
-    move.w  d2,d4           ; Save Z
-    muls    sin_angle,d2    ; Z * sin
-    asr.l   #14,d2         ; Fixed point adjustment
-    sub.w   d2,d1          ; Y' = Y*cos - Z*sin
-    
-    move.w  d3,d2          ; Restore Y
-    muls    sin_angle,d2    ; Y * sin
-    asr.l   #14,d2         ; Fixed point
-    move.w  d4,d3          ; Restore Z
-    muls    cos_angle,d3    ; Z * cos
-    asr.l   #14,d3         ; Fixed point
-    add.w   d3,d2          ; Z' = Y*sin + Z*cos
-    rts
+```javascript
+const edges = [
+    [0, 1], [1, 2], [2, 3], [3, 0],  // Front face
+    [4, 5], [5, 6], [6, 7], [7, 4],  // Back face
+    [0, 4], [1, 5], [2, 6], [3, 7]   // Connecting edges
+];
 ```
 
-### Part 4: Key Differences
+## Part 3: Rotation and Transformation
 
-1. **Memory Management**
-   - HTML5: Automatic memory management through JavaScript
-   - Amiga ASM: Manual memory management and copper list setup
+### Rotation Function
 
-2. **Math Operations**
-   - HTML5: Floating-point math using JavaScript Math functions
-   - Amiga ASM: Fixed-point math (typically 16.16 format)
+```javascript
+function rotate(point, angleX, angleY, angleZ) {
+    let [x, y, z] = point;
 
-```assembly
-; Fixed point constants (16.16 format)
-FIXED_SHIFT     EQU     16
-FIXED_ONE       EQU     1<<FIXED_SHIFT
+    // Z-axis rotation
+    let x1 = x * Math.cos(angleZ) - y * Math.sin(angleZ);
+    let y1 = x * Math.sin(angleZ) + y * Math.cos(angleZ);
+
+    // Y-axis rotation
+    let x2 = x1 * Math.cos(angleY) - z * Math.sin(angleY);
+    let z1 = z * Math.cos(angleY) + x1 * Math.sin(angleY);
+
+    // X-axis rotation
+    let y2 = y1 * Math.cos(angleX) - z1 * Math.sin(angleX);
+    let z2 = z1 * Math.cos(angleX) + y1 * Math.sin(angleX);
+
+    return [x2, y2, z2];
+}
 ```
 
-3. **Display Output**
-   - HTML5: Automatic double buffering through Canvas
-   - Amiga ASM: Manual bitplane and copper list management
+## Part 4: Drawing and Animation
 
+### Canvas Setup
+
+```javascript
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+// Handle window resizing
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+```
+
+### Memory Management and Display Setup
+
+#### Amiga Assembly:
 ```assembly
-; Amiga display setup
+; Display and memory setup
 init_display:
     move.l  #CUSTOM,a6
     move.w  #$1200,BPLCON0(a6)    ; 1 bitplane
@@ -210,90 +175,103 @@ init_display:
     move.w  #$2c81,DIWSTRT(a6)    ; Display window start
     move.w  #$2cc1,DIWSTOP(a6)    ; Display window stop
     rts
+
+; Fixed point constants (16.16 format)
+FIXED_SHIFT     EQU     16
+FIXED_ONE       EQU     1<<FIXED_SHIFT
 ```
 
-4. **Performance Considerations**
-   - HTML5: Relies on browser optimization and GPU acceleration
-   - Amiga ASM: Direct hardware access and careful cycle counting
+### Animation Loop
 
-### Part 5: Drawing the Wireframe
+#### HTML5 Implementation:
 
-HTML5 Version:
-```javascript
-edges.forEach(edge => {
-    let p1 = rotate(cube.points[edge[0]], angleX, angleY, angleZ);
-    let p2 = rotate(cube.points[edge[1]], angleX, angleY, angleZ);
-    
-    ctx.beginPath();
-    ctx.moveTo(p1[0] * scale + centerX, p1[1] * scale + centerY);
-    ctx.lineTo(p2[0] * scale + centerX, p2[1] * scale + centerY);
-    ctx.stroke();
-});
-```
-
-Amiga Assembly Version:
-```assembly
-draw_line:
-    ; Input: d0,d1 = x1,y1  d2,d3 = x2,y2
-    movem.l d0-d7/a0-a6,-(sp)
-    
-    ; Bresenham's line algorithm
-    move.w  d2,d4
-    sub.w   d0,d4          ; dx = x2-x1
-    move.w  d3,d5
-    sub.w   d1,d5          ; dy = y2-y1
-    
-    ; Calculate increment direction
-    move.w  #1,d6          ; x increment
-    tst.w   d4
-    bge.s   .dx_pos
-    neg.w   d6
-    neg.w   d4
-.dx_pos:
-    
-    ; ... rest of line drawing routine ...
-    
-    movem.l (sp)+,d0-d7/a0-a6
-    rts
-```
-
-### Part 6: Animation Loop
-
-HTML5 Version:
 ```javascript
 function draw() {
+    // Clear previous frame
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // ... rotation calculations ...
+    
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const scale = 150;
+
+    // Calculate rotation angles
+    let angleX = Date.now() * 0.001;
+    let angleY = Date.now() * 0.0005;
+    let angleZ = Date.now() * 0.00075;
+
+    // Draw each edge
+    edges.forEach(edge => {
+        let p1 = rotate(points[edge[0]], angleX, angleY, angleZ);
+        let p2 = rotate(points[edge[1]], angleX, angleY, angleZ);
+
+        ctx.beginPath();
+        ctx.moveTo(p1[0] * scale + centerX, p1[1] * scale + centerY);
+        ctx.lineTo(p2[0] * scale + centerX, p2[1] * scale + centerY);
+        ctx.stroke();
+    });
+
     requestAnimationFrame(draw);
 }
 ```
 
-Amiga Assembly Version:
-```assembly
-main_loop:
-    btst    #6,CUSTOM+VHPOSR    ; Wait for vertical blank
-    beq.s   main_loop
-    
-    bsr     clear_screen        ; Clear current buffer
-    bsr     rotate_points       ; Update 3D rotations
-    bsr     project_points      ; Project to 2D
-    bsr     draw_edges         ; Draw wireframe
-    bsr     swap_buffers       ; Flip display buffers
-    
-    bra     main_loop
+## Part 5: Advanced Techniques
+
+### 1. Multiple Cubes
+
+```javascript
+const cubes = [
+    { points: createCube(1), color: 'white', offset: 0 },
+    { points: createCube(0.6), color: 'red', offset: Math.PI / 12 },
+    { points: createCube(0.3), color: 'cyan', offset: Math.PI / 6 }
+];
 ```
 
-### Conclusion
+### 2. Perspective Projection
 
-While both implementations achieve the same visual result, they showcase the evolution of graphics programming:
+```javascript
+function applyPerspective(point, distance) {
+    const [x, y, z] = point;
+    const scale = distance / (distance + z);
+    return [x * scale, y * scale];
+}
+```
 
-- The HTML5 version benefits from modern abstractions and ease of use
-- The Amiga version demonstrates low-level optimization and hardware mastery
-- Fixed-point vs floating-point math shows different approaches to performance
-- Memory management and display synchronization highlight platform differences
+## Part 6: Performance Optimization
 
-Each approach has its advantages:
-- HTML5: Rapid development, cross-platform compatibility, easy maintenance
-- Amiga ASM: Maximum performance, precise control, minimal resource usage
+### 1. Request Animation Frame
 
-This comparison shows how the fundamental principles of 3D graphics remain consistent, while implementation details evolve with technology.
+```javascript
+// Use requestAnimationFrame for smooth animation
+requestAnimationFrame(draw);
+```
+
+### 2. Canvas Optimization
+
+```javascript
+// Optimize canvas drawing
+ctx.beginPath();
+edges.forEach(edge => {
+    // Draw all edges in a single path
+    ctx.moveTo(p1[0], p1[1]);
+    ctx.lineTo(p2[0], p2[1]);
+});
+ctx.stroke(); // Single stroke call
+```
+
+## Conclusion
+
+The 3D cube implementation demonstrates several important concepts:
+
+- 3D mathematics and transformations
+- Animation timing and optimization
+- Canvas drawing techniques
+- Matrix operations and rotations
+
+This foundation can be expanded to create more complex 3D graphics and animations in web applications.
+
+## Further Reading
+
+1. Linear Algebra and 3D Transformations
+2. Canvas Performance Optimization
+3. Advanced 3D Graphics Techniques
+4. WebGL and Three.js for more complex 3D
