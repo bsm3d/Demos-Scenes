@@ -355,4 +355,4 @@ The Boing Ball demonstrates:
 
 The modern implementation maintains the spirit of the original while leveraging current technology for enhanced visual quality and performance.
 
-Enjoy, Explore !
+Enjoy, Explore ;)
