@@ -135,10 +135,8 @@ These demos are specifically designed for educational purposes:
 
 1. **Demo Scene History**:
    - [Pouet.net](https://www.pouet.net/) - Comprehensive demo scene archive
-   - [Demozoo](https://demozoo.org/) - Demo scene historical database
    - [Scene.org](https://scene.org/) - Demo scene file archive
    - [AmigaRemix](http://www.amigaremix.com/) - Amiga music archive
-   - [Amiga History Guide](http://amigahistory.plus.com/demos.html) - Amiga demo scene history
 
 2. **Emulation Resources**:
    - [FS-UAE](https://fs-uae.net/) - Modern Amiga Emulator
