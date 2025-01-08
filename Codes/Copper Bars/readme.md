@@ -1,6 +1,29 @@
 # Amiga Copper Bars: Understanding the Hardware and Modern Recreation
 ## A Deep Dive into Amiga Graphics Hardware and Modern Web Implementation
 
+Author: Benoit (BSM3D) Saint-Moulin
+Website: www.bsm3d.com
+© 2025 BSM3D
+
+This tutorial is accompanied by a working HTML5 implementation (`BSM3D-copper-bars.html`) that you can run in any modern web browser to see the effect in action. The source code is extensively commented and can be used as a learning resource alongside this tutorial. Feel free to experiment with the code and modify parameters to understand how different values affect the final result.
+
+## How to Use This Tutorial
+
+1. **View the Effect**: 
+   - Open the provided `BSM3D-copper-bars.html` file in your web browser
+   - No additional setup or libraries required
+   - Works in any modern browser with HTML5 support
+
+2. **Study the Code**:
+   - The HTML file contains detailed comments explaining each part
+   - You can modify values in real-time to see their effects
+   - Use browser developer tools to inspect and debug
+
+3. **Learn and Experiment**:
+   - Follow this tutorial while referring to the working example
+   - Try modifying parameters like colors, speeds, and number of bars
+   - Use this as a base to create your own effects
+
 ## Introduction
 
 The Copper Bars effect was one of the most distinctive visual effects in Amiga demos, showcasing the unique capabilities of the Amiga's custom graphics hardware. This tutorial explores both the original hardware implementation and its modern web recreation.
