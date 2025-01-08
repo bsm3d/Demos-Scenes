@@ -297,11 +297,4 @@ The Sinus Scroller effect demonstrates:
 
 Our modern implementation maintains the spirit of the original while adding contemporary visual enhancements.
 
-## Further Reading
-
-1. Demo Scene History
-2. Text Rendering Techniques
-3. Color Theory and HSL Space
-4. Animation Timing Systems
-5. Font Bitmap Techniques
-6. Performance Optimization in Graphics
+Enjoy, Explore ;)
