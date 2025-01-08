@@ -134,15 +134,29 @@ These demos are specifically designed for educational purposes:
 ## Resources
 
 1. **Demo Scene History**:
-   - Amiga demo scene archives
-   - Historical demos and effects
-   - Technical documentation
+   - [Pouet.net](https://www.pouet.net/) - Comprehensive demo scene archive
+   - [Demozoo](https://demozoo.org/) - Demo scene historical database
+   - [Scene.org](https://scene.org/) - Demo scene file archive
+   - [AmigaRemix](http://www.amigaremix.com/) - Amiga music archive
+   - [Amiga History Guide](http://amigahistory.plus.com/demos.html) - Amiga demo scene history
 
-2. **Learning Materials**:
-   - Amiga hardware manuals
-   - Assembly programming guides
-   - Graphics programming tutorials
-   - Modern web graphics resources
+2. **Emulation Resources**:
+   - [FS-UAE](https://fs-uae.net/) - Modern Amiga Emulator
+   - [WinUAE](https://www.winuae.net/) - Windows Amiga Emulator
+   - [Amiga Forever](https://www.amigaforever.com/) - Commercial Amiga package
+
+3. **Learning Materials**:
+   - [Amiga Hardware Reference Manual](http://amigadev.elowar.com/read/ADCD_2.1/Hardware_Manual_guide/node0000.html)
+   - [Coppershade](http://coppershade.org/) - Amiga programming resources
+   - [MDN Canvas Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial) - Modern Canvas programming
+   - [HTML5 Graphics](https://www.w3schools.com/html/html5_canvas.asp) - W3Schools Canvas tutorial
+   - [Amiga Assembly Programming](http://amiga-dev.wikidot.com/tutorials:assembly) - Assembly tutorials
+
+4. **Modern Development Resources**:
+   - [CreateJS](https://www.createjs.com/) - Modern Canvas library
+   - [WebGL Fundamentals](https://webglfundamentals.org/) - 3D graphics programming
+   - [Canvas Performance](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas) - Optimization guide
+   - [JavaScript Animation](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) - Animation techniques
 
 ## Credits
 
