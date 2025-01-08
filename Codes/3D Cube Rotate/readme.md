@@ -380,11 +380,4 @@ The 3D cube implementation showcases:
 
 This foundation can be expanded to create more complex 3D graphics and animations in both modern and retro platforms.
 
-## Further Reading
-
-1. Linear Algebra and 3D Transformations
-2. Canvas Performance Optimization
-3. Advanced 3D Graphics Techniques
-4. WebGL and Three.js for complex 3D
-5. Amiga Hardware Programming
-6. Demo Scene History and Techniques
+Enjoy, Explore ;)
