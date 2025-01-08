@@ -145,10 +145,8 @@ These demos are specifically designed for educational purposes:
 
 3. **Learning Materials**:
    - [Amiga Hardware Reference Manual](http://amigadev.elowar.com/read/ADCD_2.1/Hardware_Manual_guide/node0000.html)
-   - [Coppershade](http://coppershade.org/) - Amiga programming resources
    - [MDN Canvas Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial) - Modern Canvas programming
    - [HTML5 Graphics](https://www.w3schools.com/html/html5_canvas.asp) - W3Schools Canvas tutorial
-   - [Amiga Assembly Programming](http://amiga-dev.wikidot.com/tutorials:assembly) - Assembly tutorials
 
 4. **Modern Development Resources**:
    - [CreateJS](https://www.createjs.com/) - Modern Canvas library
