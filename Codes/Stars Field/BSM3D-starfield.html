@@ -1,0 +1,165 @@
+<!--
+    Author : Benoit (BSM3D) Saint-Moulin
+    2025 © BSM3D
+    www.bsm3d.com
+    Free to use and for Learning purpose.
+    
+    Pixel Starfield Effect
+    --------------------
+    A classic horizontal scrolling starfield animation
+    with multi-layer parallax effect
+    
+    Features:
+    - Multiple star layers for parallax depth
+    - Pixel-perfect star rendering
+    - Dynamic star count based on screen size
+    - Varied star brightness
+    
+    Technologies used:
+    - HTML5 Canvas for rendering
+    - JavaScript for star movement
+    - CSS for pixel-perfect rendering
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSM3D - Pixel Starfield Effect</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: #000022;
+        }
+        canvas { 
+            display: block; 
+            /* Enable pixel-perfect rendering */
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Setup canvas and handle window resizing
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Disable anti-aliasing for sharp pixels
+            ctx.imageSmoothingEnabled = false;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        /**
+         * Star class representing a single star in the starfield
+         * Each star belongs to a specific layer for parallax effect
+         */
+        class Star {
+            constructor(layer) {
+                this.reset();
+                this.layer = layer;
+                // Base speed is defined by the layer number for parallax effect
+                this.speed = 0.1 + (layer * 0.15); // Base speed 0.1 with 0.15 increment per layer
+            }
+
+            /**
+             * Reset star position to the left edge with random properties
+             */
+            reset() {
+                this.x = Math.floor(Math.random());
+                this.y = Math.floor(Math.random() * canvas.height);
+                // Create different star brightnesses
+                const intensity = 128 + Math.floor(Math.random() * 128);
+                this.color = `rgb(${intensity}, ${intensity}, ${intensity})`;
+            }
+
+            /**
+             * Update star position based on its layer speed
+             */
+            update() {
+                this.x += this.speed;
+                
+                // Reset star when it moves off screen
+                if (this.x > canvas.width) {
+                    this.reset();
+                }
+            }
+
+            /**
+             * Draw star as a single pixel with its assigned color
+             */
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.fillRect(Math.floor(this.x), Math.floor(this.y), 1, 1);
+            }
+        }
+
+        // Starfield configuration
+        const NUM_LAYERS = 5;
+        // Calculate number of stars based on screen size
+        const STARS_PER_LAYER = Math.floor((window.innerWidth * window.innerHeight) / 1000);
+        const layers = [];
+
+        // Initialize star layers with calculated number of stars
+        for (let layer = 1; layer <= NUM_LAYERS; layer++) {
+            const stars = [];
+            for (let i = 0; i < STARS_PER_LAYER; i++) {
+                const star = new Star(layer);
+                // Distribute stars across the screen initially
+                star.x = Math.floor(Math.random() * canvas.width);
+                stars.push(star);
+            }
+            layers.push(stars);
+        }
+
+        /**
+         * Main animation loop
+         * Clears screen and updates all stars
+         */
+        function animate() {
+            // Clear screen with dark background
+            ctx.fillStyle = 'rgb(0, 0, 34)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Update and draw all stars in each layer
+            layers.forEach(stars => {
+                stars.forEach(star => {
+                    star.update();
+                    star.draw();
+                });
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Start the animation
+        animate();
+
+        /**
+         * Handle window resizing
+         * Adjusts number of stars based on new screen dimensions
+         */
+        window.addEventListener('resize', () => {
+            const newStarsPerLayer = Math.floor((window.innerWidth * window.innerHeight) / 1000);
+            layers.forEach(starLayer => {
+                // Add stars if screen got bigger
+                while (starLayer.length < newStarsPerLayer) {
+                    const star = new Star(layers.indexOf(starLayer) + 1);
+                    star.x = Math.floor(Math.random() * canvas.width);
+                    starLayer.push(star);
+                }
+                // Remove stars if screen got smaller
+                while (starLayer.length > newStarsPerLayer) {
+                    starLayer.pop();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
