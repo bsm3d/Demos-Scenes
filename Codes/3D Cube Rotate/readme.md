@@ -125,6 +125,7 @@ const edges = [
 
 ### Rotation Function
 
+#### HTML5 Implementation:
 ```javascript
 function rotate(point, angleX, angleY, angleZ) {
     let [x, y, z] = point;
@@ -144,6 +145,70 @@ function rotate(point, angleX, angleY, angleZ) {
     return [x2, y2, z2];
 }
 ```
+
+#### Amiga Assembly Implementation:
+```assembly
+; Rotation matrices implementation
+rotate_point:
+    ; Input: d0,d1,d2 = x,y,z coordinates
+    ; Uses d3-d7 for calculations
+    movem.l d3-d7,-(sp)
+
+    ; First rotate around X axis
+    move.w  angle_x,d3        ; Get X rotation angle
+    bsr     calc_sin_cos      ; Calculate sin/cos
+    move.w  d4,d6            ; Save cos
+    move.w  d5,d7            ; Save sin
+    
+    ; Y' = Y*cos - Z*sin
+    move.w  d1,d3            ; Copy Y
+    muls    d6,d3            ; Y*cos
+    move.w  d2,d4            ; Copy Z
+    muls    d7,d4            ; Z*sin
+    sub.l   d4,d3            ; Y*cos - Z*sin
+    asr.l   #FIXED_SHIFT,d3  ; Convert back from fixed point
+    move.w  d3,d1            ; Store new Y
+    
+    ; Z' = Y*sin + Z*cos
+    move.w  d1,d3            ; Copy original Y
+    muls    d7,d3            ; Y*sin
+    move.w  d2,d4            ; Copy Z
+    muls    d6,d4            ; Z*cos
+    add.l   d4,d3            ; Y*sin + Z*cos
+    asr.l   #FIXED_SHIFT,d3  ; Convert back
+    move.w  d3,d2            ; Store new Z
+
+    ; Now rotate around Y axis (similar process)
+    move.w  angle_y,d3
+    bsr     calc_sin_cos
+    ; ... Similar calculations for Y rotation...
+
+    ; Finally rotate around Z axis
+    move.w  angle_z,d3
+    bsr     calc_sin_cos
+    ; ... Similar calculations for Z rotation...
+
+    movem.l (sp)+,d3-d7
+    rts
+
+; Calculate sine and cosine
+; Input: d3 = angle (0-255)
+; Output: d4 = cosine, d5 = sine
+calc_sin_cos:
+    and.w   #255,d3          ; Wrap angle to 0-255
+    lea     sin_table,a0
+    move.w  (a0,d3.w*2),d5   ; Get sine
+    add.w   #64,d3           ; Add 90 degrees
+    and.w   #255,d3          ; Wrap
+    move.w  (a0,d3.w*2),d4   ; Get cosine
+    rts
+
+; Sine table (256 entries, fixed point 8.8)
+sin_table:
+    dc.w    0,6,12,18,25,31,37,43,49,55,61,67,73,79,85,90
+    dc.w    96,101,106,111,116,121,126,131,135,139,143,147,151,154,157,160
+    ; ... more sine values ...
+
 
 ## Part 4: Drawing and Animation
 
@@ -181,7 +246,9 @@ FIXED_SHIFT     EQU     16
 FIXED_ONE       EQU     1<<FIXED_SHIFT
 ```
 
-### Animation Loop
+### Drawing a Line
+
+#### HTML5 Implementation:
 
 #### HTML5 Implementation:
 
