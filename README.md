@@ -6,61 +6,153 @@ A collection of classic Amiga demo scene effects recreated using pure HTML5, Jav
 
 This repository contains recreations of iconic demo scene effects from the Amiga era, implemented using modern web technologies. Each effect is self-contained in a single HTML file, making it easy to understand and learn from.
 
-## Demo Effects
-
-- **3D Rotating Cubes**: Three nested wireframe cubes rotating in 3D space
-- **Amiga Boing Ball**: Recreation of the iconic Amiga Boing Ball demo with physics
-- **Copper Bars**: Classic Amiga copper bar effect with rainbow colors
-- **Dot Tunnel**: 3D tunnel effect using points and perspective
-- **Sinus Scroller**: Classic sine wave text scroller with color cycling
-- **Starfield**: Multi-layered horizontal starfield with parallax effect
-
 ## Features
 
-- Pure HTML5 Canvas rendering
-- Vanilla JavaScript - no external libraries
-- Minimal CSS for styling
-- Responsive design
-- Pixel-perfect rendering where appropriate
-- Commented code for educational purposes
+* Pure HTML5 Canvas rendering
+* Vanilla JavaScript - no external libraries
+* Minimal CSS for styling
+* Responsive design
+* Pixel-perfect rendering where appropriate
+* Commented code for educational purposes
+
+## Technology Stack
+
+* HTML5 Canvas for rendering
+* Vanilla JavaScript for animations and calculations
+* CSS for styling and pixel-perfect rendering
+* No external dependencies
 
 ## Learning Resources
 
 These demos are designed to help you learn about:
-- Canvas manipulation
-- 3D mathematics and transformations
-- Animation techniques
-- Color manipulation
-- Physics simulations
-- Classic demo scene effects
-
-## Technology Stack
-
-- HTML5 Canvas for rendering
-- Vanilla JavaScript for animations and calculations
-- CSS for styling and pixel-perfect rendering
-- No external dependencies
-
-## Usage
-
-Simply open any of the HTML files in a modern web browser to see the effects in action. The code is heavily commented to explain how each effect works.
+* Canvas manipulation
+* 3D mathematics and transformations
+* Animation techniques
+* Color manipulation
+* Physics simulations
+* Classic demo scene effects
 
 ## About Demo Scene
 
 The demo scene was (and still is) a computer art subculture that specializes in producing demos - non-interactive audio-visual presentations. The Amiga computer was one of the most popular platforms for demos in the late 1980s and early 1990s, known for its advanced graphics and sound capabilities for its time.
 
+## Learning Purpose
+
+These demos are specifically designed for educational purposes:
+- Code is intentionally simplified for clarity and understanding
+- Each effect is self-contained in a single HTML file
+- Extensive comments explain key concepts
+- Basic implementations that can be extended and improved
+
+## Available Effects
+
+1. **3D Rotating Cubes** (`BSM3D-3d-cube.html`)
+   - Three nested wireframe cubes
+   - Independent rotation on all axes
+   - Different colors and sizes
+
+2. **Boing Ball** (`BSM3D-boing-ball.html`)
+   - Recreation of the iconic Amiga demo
+   - Smooth bounce physics
+   - Classic checker pattern
+   - Dynamic shadow
+
+3. **Copper Bars** (`BSM3D-copper-bars.html`)
+   - Smooth color gradients
+   - Sinusoidal movement
+   - Rainbow color cycling
+   - Shine effects
+
+4. **Dot Tunnel** (`BSM3D-dot-tunnel.html`)
+   - 3D perspective simulation
+   - Smooth forward motion
+   - Dynamic point sizing
+   - Multiple layers
+
+5. **Sinus Scroller** (`BSM3D-sinus-scroller.html`)
+   - Smooth text animation
+   - Wave motion
+   - Color cycling
+   - Shadow effects
+
+6. **Starfield** (`BSM3D-starfield.html`)
+   - Multi-layer parallax
+   - Dynamic star count
+   - Varied brightness
+   - Responsive design
+
+## How to Use
+
+1. Simply open any of the HTML files in a modern web browser
+2. No additional libraries or setup required
+3. View source code to understand the implementation
+4. Modify parameters to experiment with the effects
+
+*Note: These demos are best viewed in a modern web browser with good HTML5 Canvas support.*
+
+## Learning Path
+
+1. **Start with the Basics**:
+   - Each effect is commented to explain core concepts
+   - Modify simple parameters to see their impact
+   - Understand the mathematics behind each effect
+
+2. **Experiment and Improve**:
+   - Add new features to the effects
+   - Combine multiple effects
+   - Optimize the performance
+   - Create your own variations
+
+3. **Explore the Original Hardware**:
+   For those interested in the original Amiga implementation:
+   - Try UAE (Universal Amiga Emulator) or FS-UAE
+   - Experiment with Amiga Assembly programming
+   - Study the original demo scene productions
+   - Compare hardware vs software rendering approaches
+
+## Going Further
+
+1. **Amiga Development**:
+   - Install an Amiga emulator (UAE recommended)
+   - Learn 68000 Assembly language
+   - Study Amiga hardware specifications
+   - Experiment with original demo coding
+
+2. **Modern Enhancements**:
+   - Add WebGL support
+   - Implement additional effects
+   - Create hybrid effects
+   - Optimize for mobile devices
+
+## Development Notes
+
+- Code is intentionally kept simple for educational purposes
+- Modern JavaScript features are used for clarity
+- Performance optimizations are documented but not always implemented
+- Focus is on understanding concepts rather than maximum efficiency
+
+## Resources
+
+1. **Demo Scene History**:
+   - Amiga demo scene archives
+   - Historical demos and effects
+   - Technical documentation
+
+2. **Learning Materials**:
+   - Amiga hardware manuals
+   - Assembly programming guides
+   - Graphics programming tutorials
+   - Modern web graphics resources
+
 ## Credits
 
-Created by Benoit (BSM3D) Saint-Moulin © 2025
+Created by Benoit (BSM3D) Saint-Moulin © 2025 
 Website: www.bsm3d.com
 
 ## License
 
-Free to use for learning purposes. Please credit if you use any part of these demos in your own projects.
+Free to use for learning purposes. Please credit BSM3D if you use any part of these demos in your own projects.
 
 ## Contact
 
 Feel free to visit www.bsm3d.com for more information and other projects.
-
----
-*Note: These demos are best viewed in a modern web browser with good HTML5 Canvas support.*# HTML5
