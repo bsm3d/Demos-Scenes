@@ -338,4 +338,8 @@ Ball_Y:         ds.w    1    ; Current Y position
 Ball_VelY:      ds.l    1    ; Y velocity (fixed point)
 Ball_Rotation:  ds.w    1    ; Current rotation angle
 
+;===========================================================================
+; End of program
+;===========================================================================
+
         END
