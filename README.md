@@ -1,4 +1,4 @@
-# BSM3D Demo Effects Collection
+# BSM3D Demos Effects Collection
 
 A collection of classic Amiga demo scene effects recreated using pure HTML5, JavaScript, and CSS. These demos are created for learning purposes and to pay tribute to the golden age of demo making.
 
