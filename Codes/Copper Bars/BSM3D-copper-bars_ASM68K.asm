@@ -276,4 +276,8 @@ Bar_Positions:   ds.w    NUM_BARS    ; Current Y positions
 Bar_Colors:      ds.w    NUM_BARS    ; Current colors
 Bar_Phases:      ds.w    NUM_BARS    ; Current movement phases
 
+;===========================================================================
+; End of program
+;===========================================================================
+
         END
