@@ -154,10 +154,52 @@ These demos are specifically designed for educational purposes:
    - [Canvas Performance](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas) - Optimization guide
    - [JavaScript Animation](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) - Animation techniques
 
-## Credits
+## Autor
 
-Created by Benoit (BSM3D) Saint-Moulin © 2025 
-Website: www.bsm3d.com
+Benoit (BSM3D) Saint-Moulin © 2025
+
+## About BSM
+
+BSM has been an active participant in the demo scene, contributing to various groups and productions on both PC and Amiga platforms. Below are some highlights of his involvement:
+
+## Groups and Productions
+
+### Chryseis
+
+BSM has been a part of the Chryseis group, known for their contributions to the demo scene.
+
+- [Chryseis on Pouet](https://www.pouet.net/groups.php?which=1078)
+
+### Therapy
+
+BSM has also been involved with the Therapy group, which has a significant presence in the Amiga demo scene.
+
+- [Therapy on AmigaDB](https://amigadb.net/group/1891/therapy)
+- [Therapy on Pouet](https://www.pouet.net/groups.php?which=14717)
+
+### Malixa
+
+BSM has contributed to the production titled "Malixa," which is documented on Demozoo.
+
+- [Malixa on Demozoo](https://demozoo.org/productions/33584/)
+
+### Prestige
+
+Additionally, BSM has been associated with the Prestige group, further enriching his portfolio in the demo scene.
+
+## More Information
+
+For more information about BSM's work and background, you can visit his website:
+
+- [BSM's Website](http://www.bsm3d.com)
+
+## Contact
+
+Feel free to reach out to BSM for collaborations or inquiries related to the demo scene.
+
+Thank you for visiting!
+
+
 
 ## License
 
