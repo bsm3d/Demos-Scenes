@@ -1,7 +1,7 @@
 ;===========================================================================
 ; BSM3D - Three Nested 3D Rotating Cubes
 ; Amiga 68000 Assembly
-; Author: Benoit (BSM3D) Saint-Moulin (original concept)
+; Author: Benoit (BSM3D) Saint-Moulin
 ; Amiga: Chipset OCS, 512KB Chip RAM, 512KB Fast RAM
 ;
 ; Development Note:
