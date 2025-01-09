@@ -1,5 +1,7 @@
 # BSM3D Demos Effects Collection
 
+Benoit (BSM3D) Saint-Moulin © 2025
+
 A collection of classic Amiga demo scene effects recreated using pure HTML5, JavaScript, and CSS. These demos are created for learning purposes and to pay tribute to the golden age of demo making.
 
 ## Overview
@@ -35,6 +37,41 @@ These demos are designed to help you learn about:
 ## About Demo Scene
 
 The demo scene was (and still is) a computer art subculture that specializes in producing demos - non-interactive audio-visual presentations. The Amiga computer was one of the most popular platforms for demos in the late 1980s and early 1990s, known for its advanced graphics and sound capabilities for its time.
+
+## About BSM
+
+BSM has been an active participant in the demo scene, contributing to various groups and productions on both PC and Amiga platforms. Below are some highlights of his involvement:
+
+## Groups and Productions
+
+### Chryseis
+
+BSM has been a part of the Chryseis group, known for their contributions to the demo scene.
+
+- [Chryseis on Pouet](https://www.pouet.net/groups.php?which=1078)
+
+### Therapy
+
+BSM has also been involved with the Therapy group, which has a significant presence in the Amiga demo scene.
+
+- [Therapy on AmigaDB](https://amigadb.net/group/1891/therapy)
+- [Therapy on Pouet](https://www.pouet.net/groups.php?which=14717)
+
+### Malixa
+
+BSM has contributed to the production titled "Malixa," which is documented on Demozoo.
+
+- [Malixa on Demozoo](https://demozoo.org/productions/33584/)
+
+### Prestige
+
+Additionally, BSM has been associated with the Prestige group, further enriching his portfolio in the demo scene.
+
+## More Information
+
+For more information about BSM's work and background, you can visit his website:
+
+- [BSM's Website](http://www.bsm3d.com)
 
 ## Learning Purpose
 
@@ -153,45 +190,6 @@ These demos are specifically designed for educational purposes:
    - [WebGL Fundamentals](https://webglfundamentals.org/) - 3D graphics programming
    - [Canvas Performance](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas) - Optimization guide
    - [JavaScript Animation](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) - Animation techniques
-
-## Autor
-
-Benoit (BSM3D) Saint-Moulin © 2025
-
-## About BSM
-
-BSM has been an active participant in the demo scene, contributing to various groups and productions on both PC and Amiga platforms. Below are some highlights of his involvement:
-
-## Groups and Productions
-
-### Chryseis
-
-BSM has been a part of the Chryseis group, known for their contributions to the demo scene.
-
-- [Chryseis on Pouet](https://www.pouet.net/groups.php?which=1078)
-
-### Therapy
-
-BSM has also been involved with the Therapy group, which has a significant presence in the Amiga demo scene.
-
-- [Therapy on AmigaDB](https://amigadb.net/group/1891/therapy)
-- [Therapy on Pouet](https://www.pouet.net/groups.php?which=14717)
-
-### Malixa
-
-BSM has contributed to the production titled "Malixa," which is documented on Demozoo.
-
-- [Malixa on Demozoo](https://demozoo.org/productions/33584/)
-
-### Prestige
-
-Additionally, BSM has been associated with the Prestige group, further enriching his portfolio in the demo scene.
-
-## More Information
-
-For more information about BSM's work and background, you can visit his website:
-
-- [BSM's Website](http://www.bsm3d.com)
 
 ## Contact
 
