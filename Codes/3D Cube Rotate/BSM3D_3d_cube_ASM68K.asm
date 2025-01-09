@@ -11,7 +11,7 @@
 ; compatibility : ASM-One (also compatible with SEKA : https://zrk.dk/seka/ and DevPac)
 ;
 ; AI Note:
-; As I dont program in 68000 assembly for many years, AI (ClauGitHub Copilot) 
+; As I dont program in 68000 assembly for many years, AI (GitHub Copilot) 
 ; was used to verify and review the code for potential errors. This shows how 
 ; modern AI tools can help when returning to legacy programming after a long break.
 ;
