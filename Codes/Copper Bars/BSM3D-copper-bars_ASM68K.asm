@@ -17,7 +17,7 @@
 ; for these kind of effects, making it more efficient than modern equivalents.
 ;
 ; AI Note:
-; As I dont program in 68000 assembly for many years, AI (Claude) 
+; As I dont program in 68000 assembly for many years, AI (GitHub Copilot) 
 ; was used to verify and review the code for potential errors. This shows how 
 ; modern AI tools can help when returning to legacy programming after a long break.
 ;
