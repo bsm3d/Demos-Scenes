@@ -70,7 +70,7 @@ BSM has contributed to the production titled "Malixa," which is documented on De
 
 Additionally, BSM has been associated with the Prestige group, further enriching his portfolio in the demo scene.
 
-- [Prestige on exotica)](http://janeway.exotica.org.uk/author.php?id=9256)
+- [Prestige on exotica](http://janeway.exotica.org.uk/author.php?id=9256)
 
 ## More Information
 
