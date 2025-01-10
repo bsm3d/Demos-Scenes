@@ -303,25 +303,24 @@ Update_Colors:
 5. Incorrect interrupt handling
 
 ## Further Learning
-Amiga Hardware Reference Manual
 
-Amiga Hardware Reference Manual (Archive.org)
-Amiga Developer Docs (Amiga.org)
+### Amiga Hardware Reference Manual
+- [Amiga Hardware Reference Manual (Archive.org)](https://archive.org/details/amiga-hardware-reference-manual)
+- [Amiga Developer Docs (Amiga.org)](http://www.amiga.org/developer-docs)
 
-Demo Scene Source Codes
+### Demo Scene Source Codes
+- [GitHub: Amiga Demos Collection](https://github.com/topics/amiga-demo)
 
-GitHub: Amiga Demos Collection
+### Practice with Simple Effects
+- [Amiga Assembly Tutorial (GitHub)](https://github.com/RepositoryOfAMiGaCode)
+- [Retro Game Dev Amiga Tutorials](http://www.retrogamedev.com/amiga-tutorials)
+- [Low Level Learning: Amiga Assembly](https://www.lowlevellearning.com/amiga-assembly)
 
-Practice with Simple Effects
+### Debuggers for WinUAE
+- [ODS Debugger for WinUAE](http://amiga.sourceforge.net/ods/)
+- [UAE Debugger Documentation](http://www.winuae.net/documentation/debugging/)
 
-Amiga Assembly Tutorial (GitHub)
-Retro Game Dev Amiga Tutorials
-Low Level Learning: Amiga Assembly
-
-Debuggers for WinUAE
-
-ODS Debugger for WinUAE
-UAE Debugger Documentation
+These links provide a comprehensive set of resources for anyone interested in Amiga assembly programming, demoscene history, and retro computing techniques. Always ensure to verify the current status and accessibility of these links, as web resources can change over time.
 
 ---
 Remember: While these examples repeat code for clarity, real Amiga development would use includes and libraries to avoid duplication and maintain cleaner code structure.
