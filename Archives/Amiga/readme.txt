@@ -1,4 +1,4 @@
-Here is the original Amiga (executable) demo that I found on my hard drives, tested and working on UAE.
+Here is the original Amiga (executable) demo that I made and found on my hard drives, tested and working on UAE.
 
 Note: Amiga does not use file extensions, so an Amiga executable does not have a .exe extension. Instead, this is an ADF (Amiga Disk File). Do not try to run it on Windows or any other non-Amiga system. The .dms extension is for Disk Masher System, a Floppy disk packer.
 
