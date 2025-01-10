@@ -70,7 +70,7 @@ BSM has also been involved with the PC group Malixa, who won a competition at Ab
 
 BSM has been member of the Prestige group, further enriching his portfolio in the demo scene.
 
-- [Prestige on exotica](http://janeway.exotica.org.uk/author.php?id=9256)
+- [Prestige on Exotica](http://janeway.exotica.org.uk/author.php?id=9256)
 
 ## More Information
 
