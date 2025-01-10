@@ -304,21 +304,26 @@ Update_Colors:
 
 ## Further Learning
 
-### Amiga Hardware Reference Manual
-- [Amiga Hardware Reference Manual (Archive.org)](https://archive.org/details/amiga-hardware-reference-manual)
-- [Amiga Developer Docs (Amiga.org)](http://www.amiga.org/developer-docs)
+Voici vos liens réécrits avec les bons liens :
 
-### Demo Scene Source Codes
-- [GitHub: Amiga Demos Collection](https://github.com/topics/amiga-demo)
+### Manuels de Référence Matérielle Amiga
 
-### Practice with Simple Effects
-- [Amiga Assembly Tutorial (GitHub)](https://github.com/RepositoryOfAMiGaCode)
-- [Retro Game Dev Amiga Tutorials](http://www.retrogamedev.com/amiga-tutorials)
-- [Low Level Learning: Amiga Assembly](https://www.lowlevellearning.com/amiga-assembly)
+- [Amiga Hardware Reference Manual (3rd Edition) - Archive.org](https://archive.org/details/amiga-hardware-reference-manual-3rd-edition)
+- [Amiga Developer Docs - Amiga.org](http://amigadev.elowar.com/read/ADCD_2.1/Hardware_Manual_guide/node0000.html)
 
-### Debuggers for WinUAE
-- [ODS Debugger for WinUAE](http://amiga.sourceforge.net/ods/)
-- [UAE Debugger Documentation](http://www.winuae.net/documentation/debugging/)
+### Codes Source de la Scène Démo
+
+- [GitHub : Collection de Démos Amiga](https://github.com/smart-fun/Amiga)
+
+### Pratique avec des Effets Simples
+
+- [Tutoriel d'Assembleur Amiga - GitHub](https://github.com/stefanocoppi/amiga_game_prog)
+- [Apprentissage de Bas Niveau : Assembleur Amiga](https://amigasourcecodepreservation.gitlab.io/amiga-assembler-insider-guide/)
+
+### Débogueurs pour WinUAE
+
+- [Débogueur ODS pour WinUAE](https://github.com/leifo/haujobb-amiga)
+- [Documentation du Débogueur UAE](https://www.osnews.com/story/29810/crash-course-amiga-assembly-programming/)
 
 These links provide a comprehensive set of resources for anyone interested in Amiga assembly programming, demoscene history, and retro computing techniques. Always ensure to verify the current status and accessibility of these links, as web resources can change over time.
 
