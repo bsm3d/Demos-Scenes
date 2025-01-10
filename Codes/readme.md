@@ -74,8 +74,8 @@ This consistency helps learners understand the code more easily, although it's n
 ```assembly
   INCLUDE "hardware/custom.i"    ; Hardware registers
   INCLUDE "hardware/screen.i"    ; Screen management
-  INCLUDE "utils/sincos.i"      ; Sine/Cosine tables
-  INCLUDE "utils/copper.i"      ; Copper list management
+  INCLUDE "utils/sincos.i"       ; Sine/Cosine tables
+  INCLUDE "utils/copper.i"       ; Copper list management
 ```
 
 ## Development Environment Setup
@@ -120,7 +120,7 @@ Here are the most commonly used instructions in demo coding:
 
 #### Data Movement
 ```assembly
-move.w source,dest     ; Move word
+move.w source,dest    ; Move word
 movem.l d0-d7,-(sp)   ; Multiple register move
 moveq   #0,d0         ; Quick immediate data (8-bit)
 lea     label,a0      ; Load effective address
@@ -175,7 +175,7 @@ rts                   ; Return from subroutine
 
 ### Basic Template
 ```assembly
-        SECTION CODE,CODE_C    ; Code must be first section
+        SECTION CODE,CODE_C   ; Code must be first section
 
 Start:  
         movem.l d0-a6,-(sp)   ; Save all registers
@@ -272,7 +272,7 @@ Draw_Line:
 ```assembly
 Swap_Buffers:
         movem.l DisplayBuffer,d0-d1  ; Get buffers
-        exg     d0,d1               ; Swap them
+        exg     d0,d1                ; Swap them
         movem.l d0-d1,DisplayBuffer  ; Store back
 ```
 
