@@ -2,7 +2,7 @@
 by Benoit (BSM3D) Saint-Moulin
 
 ## Table of Contents
-1. [Overview](#Introducion)
+1. [Introduction](#Introduction)
 2. [Code Philosophy](#code-philosophy)
 3. [Development Environment Setup](#development-environment-setup)
 4. [Amiga Hardware Basics](#amiga-hardware-basics)
