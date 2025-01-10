@@ -40,7 +40,7 @@ The demo scene was (and still is) a computer art subculture that specializes in 
 
 ## About BSM
 
-BSM has been an active participant in the demo scene, contributing to various groups and productions on both PC and Amiga platforms. Below are some highlights of his involvement.
+BSM (me :) ) has been an active participant in the demo scene, contributing to various groups and productions on both PC and Amiga platforms. Below are some highlights of his involvement.
 
 - [BSM's on AmigaDB](https://demozoo.org/sceners/75586/)
 - [BSM's on Exotica](http://janeway.exotica.org.uk/author.php?id=8854)
@@ -62,13 +62,13 @@ BSM has also been involved with the Therapy group, which has a significant prese
 
 ### Malixa
 
-BSM has contributed to the production titled "Malixa," which is documented on Demozoo.
+BSM has also been involved with the PC group Malixa, who won a competition at Abort'97.
 
 - [Malixa on Demozoo](https://demozoo.org/productions/33584/)
 
 ### Prestige
 
-Additionally, BSM has been associated with the Prestige group, further enriching his portfolio in the demo scene.
+BSM has been member of the Prestige group, further enriching his portfolio in the demo scene.
 
 - [Prestige on exotica](http://janeway.exotica.org.uk/author.php?id=9256)
 
