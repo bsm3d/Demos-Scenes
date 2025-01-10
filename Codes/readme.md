@@ -303,11 +303,25 @@ Update_Colors:
 5. Incorrect interrupt handling
 
 ## Further Learning
-- Amiga Hardware Reference Manual
-- Demo scene source codes
-- Online Amiga communities
-- Practice with simple effects
-- Use debugger in WinUAE
+Amiga Hardware Reference Manual
+
+Amiga Hardware Reference Manual (Archive.org)
+Amiga Developer Docs (Amiga.org)
+
+Demo Scene Source Codes
+
+GitHub: Amiga Demos Collection
+
+Practice with Simple Effects
+
+Amiga Assembly Tutorial (GitHub)
+Retro Game Dev Amiga Tutorials
+Low Level Learning: Amiga Assembly
+
+Debuggers for WinUAE
+
+ODS Debugger for WinUAE
+UAE Debugger Documentation
 
 ---
 Remember: While these examples repeat code for clarity, real Amiga development would use includes and libraries to avoid duplication and maintain cleaner code structure.
