@@ -190,7 +190,7 @@ These demos are specifically designed for educational purposes:
 
 ## License
 
-Free to use for learning purposes. Please credit BSM3D if you use any part of these code in your own projects.
+Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE): free for learning and any other noncommercial use. Please credit BSM3D if you use any part of this code in your own projects.
 
 ## Contact
 
