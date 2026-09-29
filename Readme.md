@@ -1,8 +1,8 @@
-# BSM3D Demos Effects Collection
+# BSM3D Demos Effects
 
 Benoit (BSM3D) Saint-Moulin © 2025
 
-A collection of classic Amiga demo scene effects recreated using pure HTML5, JavaScript, and CSS. These demos are created for learning purposes and to pay tribute to the golden age of demo making.
+A collection of my demo scene effects recreated using pure HTML5, JavaScript, and CSS. These demos are created for learning purposes and to pay tribute to the golden age of demo making.
 
 ## Overview
 
